@@ -1,0 +1,27 @@
+[package]
+name = "cw-authorizations"
+version = "0.1.0"
+authors = ["Nicolas Lara <nicolaslara@gmail.com>"]
+edition = "2021"
+
+exclude = [
+  # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.
+  "contract.wasm",
+  "hash.txt",
+]
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[features]
+# for more explicit tests, cargo test --features=backtraces
+backtraces = ["cosmwasm-std/backtraces"]
+# use library feature to disable all instantiate/execute/query exports
+library = []
+
+
+[dependencies]
+cosmwasm-std = { version = "1.0.0" }
+serde = { version = "1.0", default-features = false, features = ["derive"] }
+schemars = "0.8"
+thiserror = { version = "1.0" }
