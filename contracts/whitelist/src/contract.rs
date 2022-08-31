@@ -45,7 +45,7 @@ impl Authorization<ExecuteMsg> for WhitelistContract {
     fn execute_extension(
         &self,
         deps: DepsMut,
-        env: Env,
+        _env: Env,
         info: MessageInfo,
         msg: ExecuteMsg,
     ) -> Result<Response, AuthorizationError> {
