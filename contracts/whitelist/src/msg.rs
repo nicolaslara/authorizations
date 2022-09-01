@@ -1,4 +1,4 @@
-use cosmwasm_std::{Addr, CosmosMsg, CustomMsg};
+use cosmwasm_std::{Addr, CustomMsg};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
@@ -13,7 +13,6 @@ pub struct InstantiateMsg {
 pub enum ExecuteMsg {
     Allow { addr: String },
     Remove { addr: String },
-    UpdateExecutedAuthorizationState { msgs: Vec<CosmosMsg>, sender: Addr },
 }
 
 impl CustomMsg for ExecuteMsg {}
