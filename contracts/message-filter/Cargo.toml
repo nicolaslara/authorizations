@@ -1,5 +1,5 @@
 [package]
-name = "satisfies-all"
+name = "message-filter"
 version = "0.1.0"
 authors = ["Nicolas Lara <nicolaslara@gmail.com>"]
 edition = "2021"
@@ -36,6 +36,8 @@ cw2 = "0.13.2"
 schemars = "0.8.8"
 serde = { version = "1.0.137", default-features = false, features = ["derive"] }
 thiserror = { version = "1.0.31" }
+serde-json-wasm = "0.4.1"
+serde_derive = "1.0.137"
 cw-authorizations = {path="../../packages/cw-authorizations"}
 
 [dev-dependencies]
