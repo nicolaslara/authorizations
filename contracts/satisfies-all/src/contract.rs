@@ -24,6 +24,7 @@ impl SatisfiesAllContract {
         deps: DepsMut,
         msg: InstantiateMsg,
     ) -> Result<(), AuthorizationError> {
+        self.state.admin.save(deps.storage, &msg.admin)?;
         self.state.parent.save(deps.storage, &msg.parent)?;
         for child in msg.children {
             self.state.children.save(deps.storage, child, &Empty {})?;
