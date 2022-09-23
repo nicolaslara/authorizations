@@ -30,6 +30,7 @@ checksum = "ea2b2456fd614d856680dcd9fcc660a51a820fa09daef2e49772b56a193c8474"
 name = "basic"
 version = "0.1.0"
 dependencies = [
+ "cosmwasm-schema",
  "cosmwasm-std",
  "cosmwasm-storage",
  "cw-authorizations",
@@ -672,7 +673,7 @@ dependencies = [
  "cosmwasm-std",
  "cosmwasm-storage",
  "cw-authorizations",
- "cw-multi-test 0.13.4",
+ "cw-multi-test 0.14.0",
  "cw-storage-plus 0.13.4",
  "cw2 0.13.4",
  "schemars",
@@ -688,7 +689,7 @@ dependencies = [
  "cosmwasm-std",
  "cosmwasm-storage",
  "cw-authorizations",
- "cw-multi-test 0.13.4",
+ "cw-multi-test 0.14.0",
  "cw-storage-plus 0.13.4",
  "cw-utils 0.13.4",
  "cw2 0.13.4",
@@ -931,7 +932,7 @@ dependencies = [
  "cosmwasm-std",
  "cosmwasm-storage",
  "cw-authorizations",
- "cw-multi-test 0.13.4",
+ "cw-multi-test 0.14.0",
  "cw-storage-plus 0.13.4",
  "cw2 0.13.4",
  "schemars",

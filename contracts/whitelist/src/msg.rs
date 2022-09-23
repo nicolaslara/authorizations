@@ -1,15 +1,12 @@
+use cosmwasm_schema::cw_serde;
 use cosmwasm_std::{Addr, CustomMsg};
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct InstantiateMsg {
     pub dao: Addr,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub enum ExecuteMsg {
     Allow { addr: String },
     Remove { addr: String },
@@ -17,6 +14,5 @@ pub enum ExecuteMsg {
 
 impl CustomMsg for ExecuteMsg {}
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub enum MigrateMsg {}

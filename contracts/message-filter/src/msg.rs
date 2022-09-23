@@ -1,18 +1,15 @@
+use cosmwasm_schema::{cw_serde, QueryResponses};
 use cosmwasm_std::{Addr, CustomMsg};
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
 
 use crate::state::{Kind, Matcher};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct InstantiateMsg {
     pub parent: Addr,
     pub kind: Kind,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub enum ExecuteMsg {
     AddAuthorization { addr: Addr, msg: String },
     RemoveAuthorization { addr: Addr, msg: String },
@@ -20,18 +17,18 @@ pub enum ExecuteMsg {
 
 impl CustomMsg for ExecuteMsg {}
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
+#[derive(QueryResponses)]
 pub enum QueryMsg {
+    #[returns(AuthorizationsResponse)]
     GetAuthorizations { sender: Addr },
 }
 impl CustomMsg for QueryMsg {}
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[cw_serde]
 pub struct AuthorizationsResponse {
     pub authorizations: Vec<Matcher>,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub enum MigrateMsg {}
