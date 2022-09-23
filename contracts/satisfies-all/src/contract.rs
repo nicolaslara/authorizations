@@ -11,7 +11,7 @@ use cw_authorizations::{Authorization, AuthorizationError};
 use crate::msg::{ExecuteMsg, InstantiateMsg};
 use crate::state::ProxyState;
 
-const CONTRACT_NAME: &str = "crates.io:whitelist";
+const CONTRACT_NAME: &str = "crates.io:satisfies-all";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub struct SatisfiesAllContract {
@@ -82,7 +82,7 @@ impl Authorization<ExecuteMsg> for SatisfiesAllContract {
         info: MessageInfo,
         msg: ExecuteMsg,
     ) -> Result<Response, AuthorizationError> {
-        if info.sender != self.state.parent.load(deps.storage)? {
+        if info.sender != self.state.admin.load(deps.storage)? {
             return Err(AuthorizationError::Unauthorized {
                 //reason: Some("Only the parent can execute on this contract".to_string()),
             }

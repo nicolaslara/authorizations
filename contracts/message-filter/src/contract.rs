@@ -9,7 +9,7 @@ use crate::state::{Config, Kind, Matcher, MessageFilterState};
 use crate::utils::{deep_partial_match, msg_to_value, str_to_value};
 use crate::MessageFilterError;
 
-const CONTRACT_NAME: &str = "crates.io:whitelist";
+const CONTRACT_NAME: &str = "crates.io:message-filter";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub struct MessageFilterContract {
