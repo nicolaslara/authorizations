@@ -43,4 +43,5 @@ cw3 = "0.13"
 cw-authorizations = {path="../../packages/cw-authorizations"}
 
 [dev-dependencies]
-cw-multi-test = "0.14.0"
+cosmwasm-schema = { version = "1.0.0-beta" }
+cw-multi-test = "0.13.2"
