@@ -5,7 +5,9 @@ use cosmwasm_std::{
     StdResult,
 };
 use cw2::set_contract_version;
-use cw_authorizations::msg::{AuthoriazationExecuteMsg, AuthoriazationQueryMsg};
+use cw_authorizations::msg::{
+    AuthoriazationExecuteMsg, AuthoriazationQueryMsg, IsAuthorizedResponse,
+};
 use cw_authorizations::{Authorization, AuthorizationError};
 
 use crate::msg::{ExecuteMsg, InstantiateMsg};
@@ -62,7 +64,8 @@ impl Authorization<ExecuteMsg> for SatisfiesAllContract {
                         sender: sender.to_owned(),
                     },
                 )
-                .unwrap_or(false)
+                .unwrap_or(IsAuthorizedResponse { authorized: false })
+                .authorized
         }))
     }
 
